@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-cards";
+import "swiper/css/effect-coverflow";
 
 const Slider = () => {
   const [images, setImages] = useState([]);
@@ -14,16 +14,27 @@ const Slider = () => {
       .catch((err) => console.error("Failed to load images:", err));
   }, []);
 
+  if (images.length === 0) return null;
+
   return (
     <Swiper
-      modules={[EffectCards, Autoplay]}
-      effect="cards"
+      modules={[EffectCoverflow, Autoplay]}
+      effect="coverflow"
+      coverflowEffect={{
+        rotate: 20,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: true,
+      }}
       autoplay={{
-        delay: 2500, // ⏱ 2.5 seconds per slide
+        delay: 2500,
         disableOnInteraction: false,
       }}
-      loop
-      className="w-full max-w-[800px] h-[500px]"
+      loop={images.length > 2}
+      centeredSlides
+      slidesPerView={1}
+      className="w-[350px] md:w-[600px] lg:w-[800px] h-[250px] md:h-[400px] lg:h-[500px]"
     >
       {images.map((img) => (
         <SwiperSlide key={img.id}>
