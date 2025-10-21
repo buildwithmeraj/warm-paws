@@ -1,13 +1,18 @@
 import React from "react";
+import logo from "../../public/logo.png";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/services">Services</NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile">My Profile</NavLink>
       </li>
     </>
   );
@@ -39,7 +44,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a class="btn btn-ghost text-xl">
+          <img src={logo} alt="logo" className="h-6 mr-0.5" />
+          WarmPaws
+        </a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">{navLinks}</ul>
