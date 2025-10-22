@@ -1,21 +1,24 @@
 import React, { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { NavLink } from "react-router";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUsingEmail } = use(AuthContext);
+  const { signInUsingEmail, setUser, firebaseErrors } = use(AuthContext);
   const handleForm = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
     let password = e.target.password.value;
     signInUsingEmail(email, password)
       .then((userCredential) => {
-        //setUser(userCredential.user);
-        console.log("user", userCredential.user);
+        setUser(userCredential.user);
+        toast.success("Login Successful");
       })
       .catch((error) => {
-        //const errorCode = error.code;
-        console.log(error.message);
+        const errMsg = firebaseErrors.find(
+          (err) => err.code === error.code
+        ).message;
+        toast.error(errMsg);
       });
   };
   return (
