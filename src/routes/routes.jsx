@@ -6,9 +6,12 @@ import Register from "../pages/Register";
 import PrivateRoutes from "../provider/PrivateRoutes";
 import ServiceDetails from "../components/ServiceDetails";
 import AllServices from "../components/AllServices";
+import Profile from "../pages/Profile";
+import ErrorPage from "../pages/ErrorPage";
 const router = createBrowserRouter([
   {
     Component: MainLayout,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, Component: Home },
       { path: "/login", Component: Login },
@@ -19,6 +22,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ServiceDetails />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
           </PrivateRoutes>
         ),
       },

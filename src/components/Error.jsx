@@ -1,12 +1,12 @@
 import React from "react";
 import { VscError } from "react-icons/vsc";
 
-const Error = (message) => {
+const Error = ({ message }) => {
   return (
     <div role="alert" className="alert alert-error alert-soft">
-      <span>
+      <span className="flex items-center gap-2">
         <VscError />
-        {message}
+        {message} Please try reloading the page.
       </span>
     </div>
   );

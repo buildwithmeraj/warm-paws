@@ -55,10 +55,8 @@ const AuthProvider = ({ children }) => {
   ];
 
   const auth = getAuth(app);
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-  });
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const signInUsingEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -75,6 +73,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -88,6 +87,7 @@ const AuthProvider = ({ children }) => {
     registerUsingEmail,
     logOut,
     firebaseErrors,
+    loading,
   };
   return (
     <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
