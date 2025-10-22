@@ -2,10 +2,54 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, cupcake;
 }
+@import "animate.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 .active {
   color: rgb(69, 85, 226);
   font-weight: bold;
 }
+* {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 h1 {
-  @apply font-bold text-4xl py-4;
+  @apply font-bold text-4xl py-6 text-center;
+}
+.home-banner {
+  @apply font-semibold text-4xl p-4;
+}
+.banner-rotating-outline::before {
+  content: "";
+  position: absolute;
+  inset: -4px; /* distance from banner edges */
+  border-radius: 1rem;
+  background: repeating-conic-gradient(
+    from 0deg,
+    #d97706 0deg 10deg,
+    /* amber dash */ transparent 10deg 20deg /* gap between dashes */
+  );
+  animation: rotate-border 4s linear infinite;
+  z-index: 0;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 4px; /* makes it appear as an outline */
+}
+
+.banner-rotating-outline {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* hides pseudo-element overflow */
+}
+
+@keyframes rotate-border {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

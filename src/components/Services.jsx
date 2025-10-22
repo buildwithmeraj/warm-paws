@@ -29,12 +29,14 @@ const Services = () => {
   if (loading) return <Loading />;
   if (error) return <Error message={error} />;
   return (
-    <div>
-      <h1 className="">Our Services</h1>
+    <div className="m-4">
+      <h1 className="">
+        Our <span className="text-amber-600">Services</span>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <div
-            className="card bg-base-200 shadow-sm hover:shadow-xl hover:scale-105"
+            className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={service.serviceId}
           >
             <figure>
