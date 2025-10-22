@@ -6,7 +6,7 @@ import { HiMiniTicket } from "react-icons/hi2";
 import { IoMdPricetags } from "react-icons/io";
 import { NavLink } from "react-router";
 
-const Services = () => {
+const AllServices = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -35,7 +35,7 @@ const Services = () => {
         Our <span className="text-amber-600">Services</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.slice(0, 6).map((service) => (
+        {services.map((service) => (
           <div
             className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={service.serviceId}
@@ -82,16 +82,8 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <div className="py-6 text-center">
-        <NavLink
-          to="/services"
-          className="btn btn-success rounded-lg text-white"
-        >
-          More Services
-        </NavLink>
-      </div>
     </div>
   );
 };
 
-export default Services;
+export default AllServices;
