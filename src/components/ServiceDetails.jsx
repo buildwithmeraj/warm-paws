@@ -1,15 +1,29 @@
-import { useParams, NavLink, Link } from "react-router";
+import { useParams, Link } from "react-router";
 import Loading from "./Loading";
 import Error from "./Error";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ErrorImage from "./ErrorImage";
+import { BiSolidCategory } from "react-icons/bi";
+import { PiFlagBannerFill } from "react-icons/pi";
+import { BsInfoSquare } from "react-icons/bs";
+import { MdPriceCheck } from "react-icons/md";
+import { HiMiniTicket } from "react-icons/hi2";
+import { MdReviews } from "react-icons/md";
+import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const ServiceDetails = () => {
   const id = useParams().id;
+  const { user } = useContext(AuthContext);
 
   const [serviceDetails, setServiceDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const handleForm = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    toast.success("Booking Successful");
+  };
   useEffect(() => {
     fetch("/servicesList.json")
       .then((res) => {
@@ -31,64 +45,97 @@ const ServiceDetails = () => {
 
   const service = serviceDetails.find((service) => service.serviceId == id);
 
-  console.log(service);
-
   if (service) {
     return (
       <div className="m-4">
         <h1 className="">
           <span className="text-amber-600">Services</span> Details
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="">
           <div
-            className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
+            className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
             key={service.serviceId}
           >
             <figure>
               <img
                 src={service.image}
                 alt={service.serviceName}
-                className="h-[350px] w-full object-cover p-4 rounded-3xl"
+                className="w-full h-[600px] object-cover p-4 rounded-3xl"
               />
             </figure>
-            <div className="card-body py-1">
-              <h2 className="card-title">
+            <div className="card-body p-4">
+              <h2 className="card-title text-3xl font-semibold">
                 {service.serviceName}
-                <div className="badge badge-secondary">{service.category}</div>
               </h2>
-              <div className="text-gray-500">{service.providerName}</div>
-              <p>{service.description}</p>
-              <div className="card-actions justify-center mb-2 gap-4">
-                <div className="px-2 py-1 rounded-lg bg-blue-300 text-blue-900 flex items-center gap-1">
-                  <div>Slots:</div>
+              <div className="text-gray-500 text-lg mb-2 flex items-center gap-1">
+                <BiSolidCategory />
+                Category:{" "}
+                <span className="font-semibold text-blue-400">
+                  {service.category}
+                </span>
+              </div>
+              <div className="text-gray-500 text-lg mb-2 flex items-center gap-1">
+                <PiFlagBannerFill />
+                By:{" "}
+                <span className="font-semibold text-amber-500">
+                  {service.providerName}
+                </span>
+              </div>
+              <div className="text-xl flex items-center gap-2 mb-8 mt-4">
+                <BsInfoSquare />
+
+                {service.description}
+              </div>
+              <div className="mb-2">
+                <div className="mb-4 text-xl flex items-center gap-1">
+                  <MdPriceCheck />
+                  Total Charge: ${service.price}
+                </div>
+                <div className="mb-4 text-xl flex items-center gap-1">
+                  <HiMiniTicket />
+
+                  <div>Slots Availabe:</div>
                   <div>{service.slotsAvailable}</div>
                 </div>
-                <div className="px-2 py-1 rounded-lg bg-amber-300 text-amber-900 flex items-center gap-1">
-                  <div>Rating:</div>
-                  {service.rating}
-                </div>
-                <div className="px-2 py-1 rounded-lg bg-green-300 text-green-900 flex items-center gap-1">
-                  <div>Charge:</div>${service.price}
+                <div className="mb-4 text-xl flex items-center gap-1">
+                  <MdReviews />
+                  <div>Total Rating:</div>
+                  {service.rating}/5
                 </div>
               </div>
-            </div>
-            <div className="text-center m-4">
-              <NavLink
-                className="btn btn-info w-full rounded-lg text-white"
-                to={`/services/${service.serviceId}`}
+              <form
+                action=""
+                className="grid grid-cols-2 gap-2 w-full my-2"
+                onSubmit={handleForm}
               >
-                View Details
-              </NavLink>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="input w-full"
+                    defaultValue={user?.displayName || ""}
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="input w-full"
+                    defaultValue={user?.email || ""}
+                  />
+                </div>
+                <div className="text-center col-span-2 mt-2">
+                  <button
+                    className="btn btn-info w-full rounded-lg text-white"
+                    type="submit"
+                  >
+                    Book Service
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-        <div className="py-6 text-center">
-          <NavLink
-            to="/services"
-            className="btn btn-success rounded-lg text-white"
-          >
-            More Services
-          </NavLink>
         </div>
       </div>
     );
