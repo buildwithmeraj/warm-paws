@@ -1,3 +1,5 @@
+import Loading from "./Loading";
+import Error from "./Error";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { HiMiniTicket } from "react-icons/hi2";
@@ -24,14 +26,17 @@ const Services = () => {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error message={error} />;
   return (
     <div>
       <h1 className="">Our Services</h1>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
-          <div className="card bg-base-200 shadow-sm" key={service.serviceId}>
+          <div
+            className="card bg-base-200 shadow-sm hover:shadow-xl hover:scale-105"
+            key={service.serviceId}
+          >
             <figure>
               <img
                 src={service.image}
@@ -46,7 +51,7 @@ const Services = () => {
               </h2>
               <div className="text-gray-500">{service.providerName}</div>
               <p>{service.description}</p>
-              <div className="card-actions justify-center mb-2 gap-3">
+              <div className="card-actions justify-center mb-2 gap-4">
                 <div className="px-2 py-1 rounded-lg bg-blue-300 text-blue-900 flex items-center gap-1">
                   <HiMiniTicket />
                   <div>Slots:</div>
@@ -62,6 +67,11 @@ const Services = () => {
                   <div>Charge:</div>${service.price}
                 </div>
               </div>
+            </div>
+            <div className="text-center m-4">
+              <button className="btn btn-info w-full rounded-lg text-white">
+                View Details
+              </button>
             </div>
           </div>
         ))}
