@@ -1,10 +1,12 @@
 import React, { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInUsingEmail, setUser, firebaseErrors } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleForm = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
@@ -13,6 +15,7 @@ const Login = () => {
       .then((userCredential) => {
         setUser(userCredential.user);
         toast.success("Login Successful");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         const errMsg = firebaseErrors.find(
