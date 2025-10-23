@@ -80,7 +80,7 @@ const Login = () => {
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 lg:w-xl shadow-2xl">
+          <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
               <h1 className="text-3xl font-semibold mb-2 text-center">Login</h1>
 
@@ -112,20 +112,19 @@ const Login = () => {
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center mt-3">
-                  <button
-                    type="button"
+                <div className="flex flex-col lg:flex-row lg:justify-between mt-3 gap-2">
+                  <a
                     onClick={handleForgotPassword}
                     className="link link-hover text-lg"
                   >
                     Forgot password?
-                  </button>
+                  </a>
                   <NavLink to="/register" className="link link-hover text-lg">
                     Create an account
                   </NavLink>
                 </div>
 
-                <button className="btn btn-neutral mt-4 w-full" type="submit">
+                <button className="btn btn-primary mt-4 w-full" type="submit">
                   Login
                 </button>
                 <button

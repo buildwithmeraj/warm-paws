@@ -47,19 +47,21 @@ const ServiceDetails = () => {
   if (service) {
     return (
       <div className="m-4">
-        <h1 className="">
+        <h2 className="font-semibold text-4xl text-center mb-4">
           <span className="text-amber-600">Services</span> Details
-        </h1>
+        </h2>
+        <div className="divider"></div>
         <div className="">
           <div
             className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
             key={service.serviceId}
           >
-            <figure>
+            <figure className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl">
               <img
                 src={service.image}
                 alt={service.serviceName}
-                className="w-full h-[600px] object-cover p-4 rounded-3xl"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
             </figure>
             <div className="card-body p-4">
@@ -101,30 +103,25 @@ const ServiceDetails = () => {
                 </div>
               </div>
               <form
-                action=""
-                className="grid grid-cols-2 gap-2 w-full my-2"
                 onSubmit={handleForm}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full my-4"
               >
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="input w-full"
-                    defaultValue={user?.displayName || ""}
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="input w-full"
-                    defaultValue={user?.email || ""}
-                  />
-                </div>
-                <div className="text-center col-span-2 mt-2">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="input input-bordered w-full"
+                  defaultValue={user?.displayName || ""}
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="input input-bordered w-full"
+                  defaultValue={user?.email || ""}
+                />
+                <div className="lg:col-span-2">
                   <button
-                    className="btn btn-info w-full rounded-lg text-white"
+                    className="btn btn-primary w-full rounded-lg text-white mt-2"
                     type="submit"
                   >
                     Book Service

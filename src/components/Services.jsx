@@ -40,11 +40,12 @@ const Services = () => {
             className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={service.serviceId}
           >
-            <figure>
+            <figure className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl">
               <img
                 src={service.image}
                 alt={service.serviceName}
-                className="h-[350px] w-full object-cover p-4 rounded-3xl"
+                className="absolute inset-0 w-full h-full object-cover p-2 rounded-2xl"
+                loading="lazy"
               />
             </figure>
             <div className="card-body py-1">
@@ -55,7 +56,7 @@ const Services = () => {
               <div className="text-gray-500">{service.providerName}</div>
               <p>{service.description}</p>
               <div className="card-actions justify-center mb-2 gap-4">
-                <div className="px-2 py-1 rounded-lg bg-blue-300 text-blue-900 flex items-center gap-1">
+                <div className="px-2 py-1 rounded-lg bg-blue-300 text-blue-900  hidden lg:flex items-center gap-1">
                   <HiMiniTicket />
                   <div>Slots:</div>
                   <div>{service.slotsAvailable}</div>
@@ -73,7 +74,7 @@ const Services = () => {
             </div>
             <div className="text-center m-4">
               <NavLink
-                className="btn btn-info w-full rounded-lg text-white"
+                className="btn btn-primary w-full rounded-lg text-white"
                 to={`/services/${service.serviceId}`}
               >
                 View Details
@@ -85,7 +86,7 @@ const Services = () => {
       <div className="py-6 text-center">
         <NavLink
           to="/services"
-          className="btn btn-success rounded-lg text-white"
+          className="btn btn-primary rounded-lg text-white"
         >
           More Services
         </NavLink>

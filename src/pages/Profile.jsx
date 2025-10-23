@@ -6,7 +6,7 @@ import Error from "../components/Error";
 
 const Profile = () => {
   const [update, setUpdate] = useState(false);
-  const { user, setUser, firebaseErrors, updateUserProfile } =
+  const { user, setUser, firebaseErrors, updateUserProfile, logOut } =
     useContext(AuthContext);
   const [error, setError] = useState(null);
   const photoURLRegex =
@@ -46,6 +46,16 @@ const Profile = () => {
         setError(errMsg);
       });
   };
+  const handleLogout = () => {
+    toast.success("Logged out successfully");
+    setTimeout(() => {
+      logOut()
+        .then(() => setUser(null))
+        .catch((error) => {
+          toast.error("Logout error: " + error.message);
+        });
+    }, 2000);
+  };
   if (update) {
     return (
       <div className="hero min-h-[60vh]">
@@ -73,7 +83,7 @@ const Profile = () => {
                   name="photoURL"
                   defaultValue={defPhotoURL}
                 />
-                <button className="btn btn-neutral mt-4" type="submit">
+                <button className="btn btn-primary mt-4" type="submit">
                   Update
                 </button>
                 <button
@@ -93,7 +103,7 @@ const Profile = () => {
   return (
     <div className="hero min-h-[60vh]">
       <div className="hero-content flex-col">
-        <div className="card bg-base-100 lg:w-xl shadow-2xl">
+        <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
           <div className="card-body">
             <h2 className="text-3xl font-semibold text-center">
               Your <span className="text-amber-600">Profile</span>
@@ -116,11 +126,14 @@ const Profile = () => {
               </div>
             )}
             <button
-              className="btn mt-2 w-full"
+              className="btn btn-primary mt-2 w-full"
               type="button"
               onClick={handleUpdateButton}
             >
               Update Profile
+            </button>
+            <button onClick={handleLogout} className="btn btn-error text-white">
+              Logout
             </button>
           </div>
         </div>

@@ -9,7 +9,7 @@ import Experts from "../components/Experts";
 const Home = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 justify-center items-center mt-2">
+      <div className="grid lg:grid-cols-2 justify-center items-center mt-6 md:mt-2 gap-6 lg:gap-1">
         <Banner />
         <Slider />
       </div>

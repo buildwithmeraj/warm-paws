@@ -34,7 +34,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-200 shadow-sm">
+    <div className="navbar bg-base-200 shadow-sm px-[3%] md:px-[5%]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost text-2xl" to="/">
+        <Link className="text-2xl flex items-center gap-2" to="/">
           <img src={logo} alt="logo" className="h-6 mr-0.5" />
           <div>
             <span className="text-amber-600">Warm</span>Paws
@@ -68,14 +68,14 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
 
       {user ? (
-        <div className="navbar-end">
+        <div className="navbar-end items-center">
           <div
-            className="relative tooltip tooltip-bottom mr-2"
+            className="relative tooltip tooltip-bottom mr-2 hidden md:flex"
             data-tip={user?.displayName || "User"}
           >
             {user.photoURL ? (
@@ -89,19 +89,25 @@ const Navbar = () => {
               <HiUserCircle className="text-5xl cursor-help" />
             )}
           </div>
-          <Link to="/profile" className="btn mr-2 btn-info text-white">
+          <Link to="/profile" className="btn mr-2 btn-primary text-white">
             Profile
           </Link>
-          <button onClick={handleLogout} className="btn btn-error text-white">
+          <button
+            onClick={handleLogout}
+            className="btn btn-error text-white hidden lg:flex"
+          >
             Logout
           </button>
         </div>
       ) : (
         <div className="navbar-end">
-          <Link to="/login" className="btn mr-2 btn-info text-white">
+          <Link to="/login" className="btn mr-2 btn-primary text-white">
             Login
           </Link>
-          <Link to="/register" className="btn btn-success text-white">
+          <Link
+            to="/register"
+            className="btn btn-success text-white  hidden lg:flex"
+          >
             Register
           </Link>
         </div>

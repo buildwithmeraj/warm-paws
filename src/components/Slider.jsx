@@ -44,7 +44,7 @@ const Slider = () => {
       loop={images.length > 2}
       centeredSlides
       slidesPerView={1}
-      className="w-[350px] md:w-[600px] lg:w-[800px] h-[250px] md:h-[400px] lg:h-[500px]"
+      className="w-[350px] md:w-[600px] lg:w-[800px] h-60 md:h-[400px] lg:h-[500px] rounded-xl"
     >
       {images.map((img) => (
         <SwiperSlide key={img.id}>

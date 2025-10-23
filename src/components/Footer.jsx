@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
       </nav>
 
-      <nav className="text-center">
+      <nav className="text-center text-sm">
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center justify-center gap-2">
             <FaLocationArrow className="text-md" />

@@ -5,30 +5,82 @@
 @import "animate.css";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
-.active {
-  color: rgb(69, 85, 226);
-  font-weight: bold;
-}
 * {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+body {
+  background-color: #f6f9fc;
+  color: #333333;
+}
+
 h1 {
   @apply font-bold text-4xl py-6 text-center;
 }
+
 .home-banner {
   @apply font-semibold text-4xl p-4;
 }
+
+.active {
+  color: #f6a192;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e3eaf2;
+}
+
+.navbar a :not(.btn) {
+  color: #333333;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover :not(.btn) {
+  color: #f6a192;
+}
+
+.btn-primary {
+  background-color: #f6a192;
+  border: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #f68b7f;
+}
+
+.footer {
+  background-color: #e9f0f8;
+  color: #333333;
+  padding: 2rem 1rem;
+}
+
+.footer a {
+  color: #f6a192;
+  transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+  opacity: 0.8;
+}
+
 .banner-rotating-outline::before {
   content: "";
   position: absolute;
-  inset: -4px; /* distance from banner edges */
+  inset: -4px;
   border-radius: 1rem;
   background: repeating-conic-gradient(
     from 0deg,
-    #d97706 0deg 10deg,
-    /* amber dash */ transparent 10deg 20deg /* gap between dashes */
+    #f6a192 0deg 10deg,
+    transparent 10deg 20deg
   );
   animation: rotate-border 4s linear infinite;
   z-index: 0;
@@ -36,13 +88,13 @@ h1 {
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  padding: 4px; /* makes it appear as an outline */
+  padding: 4px;
 }
 
 .banner-rotating-outline {
   position: relative;
   z-index: 1;
-  overflow: hidden; /* hides pseudo-element overflow */
+  overflow: hidden;
 }
 
 @keyframes rotate-border {

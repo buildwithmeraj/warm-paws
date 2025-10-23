@@ -38,7 +38,7 @@ const ForgotPassword = () => {
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 lg:w-xl shadow-2xl">
+          <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
               <h1>Forgot Password</h1>
               {error && <Error message={error} />}
@@ -63,7 +63,7 @@ const ForgotPassword = () => {
                     </Link>
                   </div>
                 </div>
-                <button className="btn btn-neutral mt-4" type="submit">
+                <button className="btn btn-primary mt-4" type="submit">
                   Reset Password
                 </button>
               </fieldset>

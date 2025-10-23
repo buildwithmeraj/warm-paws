@@ -81,7 +81,7 @@ const Register = () => {
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 lg:w-xl shadow-2xl">
+          <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
               <h1>Register</h1>
               {error && <Error message={error} />}
@@ -123,9 +123,9 @@ const Register = () => {
                     )}
                   </span>
                 </div>
-                <div className="mt-2 flex justify-between items-center">
+                <div className="mt-2 flex flex-col lg:flex-row lg:justify-between gap-2">
                   <NavLink to="/login" className="link link-hover text-lg">
-                    Already registered? Login here.
+                    Already registered?
                   </NavLink>
                   <a
                     href="https://imgbb.com"
@@ -135,7 +135,7 @@ const Register = () => {
                     Upload Photo
                   </a>
                 </div>
-                <button className="btn btn-neutral mt-4" type="submit">
+                <button className="btn btn-primary mt-4" type="submit">
                   Register
                 </button>
                 <button

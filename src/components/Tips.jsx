@@ -28,7 +28,7 @@ const Tips = () => {
         <span className="text-amber-600">Winter Care Tips</span> for Your
         Favourite Paws
       </h2>
-      <div className="grid grid-cols-3 place-items-center gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 mb-2">
         {tips.map((tip) => (
           <div
             key={tip.id}

@@ -23,7 +23,7 @@ const Experts = () => {
   if (doctors.length === 0) return null;
 
   return (
-    <div className="mt-6">
+    <div className="md:mt-6">
       <h1>
         Meet Our <span className="text-amber-600">Vet Experts</span>
       </h1>
@@ -33,11 +33,12 @@ const Experts = () => {
             className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={doctor.id}
           >
-            <figure>
+            <figure className="relative w-full aspect-square aspect-[2/3] 3md:aspect-[2/4] overflow-hidden rounded-2xl">
               <img
                 src={doctor.image}
                 alt={doctor.doctorName}
-                className="h-[400px] w-full object-cover p-4 rounded-3xl"
+                className="absolute inset-0 w-full h-full object-cover p-2 rounded-2xl"
+                loading="lazy"
               />
             </figure>
             <div className="card-body py-1">
