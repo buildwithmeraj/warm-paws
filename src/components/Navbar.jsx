@@ -85,7 +85,7 @@ const Navbar = () => {
         </div>
       ) : (
         <div className="navbar-end">
-          <HiUserCircle className="text-5xl mr-2" />
+          <HiUserCircle className="text-5xl mr-2 hidden md:flex" />
           <Link to="/login" className="btn mr-2 btn-primary text-white">
             <FaSignInAlt />
             Login
