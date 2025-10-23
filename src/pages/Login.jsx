@@ -4,9 +4,11 @@ import { NavLink, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import Error from "../components/Error";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { signInUsingEmail, setUser, firebaseErrors } = useContext(AuthContext);
+  const { signInUsingEmail, signInUsingGoogle, setUser, firebaseErrors } =
+    useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,6 +58,22 @@ const Login = () => {
       return setError("Please enter your email address first.");
     }
     navigate("/forgot-password", { state: { email } });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInUsingGoogle()
+      .then((result) => {
+        setUser(result.user);
+        toast.success("Login Successful");
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const match = firebaseErrors.find((err) => err.code === error.code);
+        const errMsg = match
+          ? match.message
+          : "Login failed. Please try again.";
+        setError(errMsg);
+      });
   };
 
   return (
@@ -109,6 +127,14 @@ const Login = () => {
 
                 <button className="btn btn-neutral mt-4 w-full" type="submit">
                   Login
+                </button>
+                <button
+                  className="btn mt-2 w-full"
+                  type="button"
+                  onClick={handleGoogleSignIn}
+                >
+                  <FcGoogle />
+                  Google Login
                 </button>
               </fieldset>
             </div>

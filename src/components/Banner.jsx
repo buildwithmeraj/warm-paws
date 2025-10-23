@@ -1,6 +1,6 @@
 import React from "react";
 import "animate.css";
-import logo from "../../public/logo.png";
+import logo from "../assets/logo.png";
 
 const Banner = () => {
   return (

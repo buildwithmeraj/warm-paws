@@ -5,7 +5,10 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  GoogleAuthProvider,
+  signInWithPopup,
   createUserWithEmailAndPassword,
+  updateProfile,
   signOut,
 } from "firebase/auth";
 
@@ -58,13 +61,22 @@ const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const googleProvider = new GoogleAuthProvider();
 
   const signInUsingEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const signInUsingGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const registerUsingEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
 
   const logOut = () => {
@@ -89,8 +101,10 @@ const AuthProvider = ({ children }) => {
     user,
     setUser,
     signInUsingEmail,
+    signInUsingGoogle,
     passwordResetEmail,
     registerUsingEmail,
+    updateUserProfile,
     logOut,
     firebaseErrors,
     loading,

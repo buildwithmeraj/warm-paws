@@ -1,25 +1,24 @@
-import React, { use } from "react";
-import logo from "../../public/logo.png";
+import React, { useContext } from "react";
+import logo from "../assets/logo.png";
 import { NavLink, Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { HiUserCircle } from "react-icons/hi2";
 
 const Navbar = () => {
-  const { user, setUser, logOut } = use(AuthContext);
+  const { user, setUser, logOut } = useContext(AuthContext);
+
   const handleLogout = () => {
     toast.success("Logged out successfully");
-    setInterval(
+    setTimeout(() => {
       logOut()
-        .then(() => {
-          setUser(null);
-        })
+        .then(() => setUser(null))
         .catch((error) => {
-          toast.error("Logout error:", error);
-        }),
-      2000
-    );
+          toast.error("Logout error: " + error.message);
+        });
+    }, 2000);
   };
+
   const navLinks = (
     <>
       <li>
@@ -33,11 +32,12 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex="0" role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -45,18 +45,17 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow z-20"
+            tabIndex={-1}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-20"
           >
             {navLinks}
           </ul>
@@ -68,18 +67,28 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
+
       {user ? (
         <div className="navbar-end">
           <div
-            className="mr-2 text-5xl tooltip tooltip-bottom cursor-help"
+            className="relative tooltip tooltip-bottom mr-2"
             data-tip={user?.displayName || "User"}
           >
-            <HiUserCircle />
+            {user.photoURL ? (
+              <img
+                src={user.photoURL}
+                alt="profile picture"
+                className="w-10 h-10 rounded-full"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <HiUserCircle className="text-5xl cursor-help" />
+            )}
           </div>
-
           <Link to="/profile" className="btn mr-2 btn-info text-white">
             Profile
           </Link>
