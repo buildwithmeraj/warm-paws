@@ -81,7 +81,7 @@ const Register = () => {
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
+          <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
               <h1>Register</h1>
               {error && <Error message={error} />}

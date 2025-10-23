@@ -21,7 +21,6 @@ const Services = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Fetch error:", err);
         setError(err.message);
         setLoading(false);
       });

@@ -80,7 +80,7 @@ const Login = () => {
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
+          <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
             <div className="card-body">
               <h1 className="text-3xl font-semibold mb-2 text-center">Login</h1>
 

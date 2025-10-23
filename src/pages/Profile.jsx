@@ -103,7 +103,7 @@ const Profile = () => {
   return (
     <div className="hero min-h-[60vh]">
       <div className="hero-content flex-col">
-        <div className="card bg-base-100 md:w-lg lg:w-xl shadow-2xl">
+        <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
           <div className="card-body">
             <h2 className="text-3xl font-semibold text-center">
               Your <span className="text-amber-600">Profile</span>
