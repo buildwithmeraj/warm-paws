@@ -3,6 +3,9 @@ import { Link, useLocation } from "react-router";
 import Error from "../components/Error";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FaUserPlus } from "react-icons/fa6";
+import { FaSignInAlt } from "react-icons/fa";
+import { FaUnlockKeyhole } from "react-icons/fa6";
 
 const ForgotPassword = () => {
   const [error, setError] = useState(null);
@@ -52,19 +55,28 @@ const ForgotPassword = () => {
                   name="email"
                   defaultValue={emailFromLogin}
                 />
-                <div className="flex justify-between items-center mt-3">
+                <div className="flex flex-col lg:flex-row lg:justify-between mt-3 gap-2">
                   <div>
-                    <Link to="/login" className="link link-hover text-lg">
+                    <Link
+                      to="/login"
+                      className="link link-hover text-lg flex items-center gap-2"
+                    >
+                      <FaSignInAlt />
                       Login Here
                     </Link>
                   </div>
                   <div>
-                    <Link to="/register" className="link link-hover text-lg">
+                    <Link
+                      to="/register"
+                      className="link link-hover text-lg flex items-center gap-2"
+                    >
+                      <FaUserPlus />
                       Create an account
                     </Link>
                   </div>
                 </div>
                 <button className="btn btn-primary mt-4" type="submit">
+                  <FaUnlockKeyhole className="mb-0.5" />
                   Reset Password
                 </button>
               </fieldset>

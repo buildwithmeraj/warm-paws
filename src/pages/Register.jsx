@@ -6,6 +6,9 @@ import Error from "../components/Error";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
+import { FaUserPlus } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
 
 const Register = () => {
   const {
@@ -125,18 +128,24 @@ const Register = () => {
                   </span>
                 </div>
                 <div className="mt-2 flex flex-col lg:flex-row lg:justify-between gap-2">
-                  <NavLink to="/login" className="link link-hover text-lg">
+                  <NavLink
+                    to="/login"
+                    className="link link-hover text-lg flex items-center gap-2"
+                  >
+                    <FaSignInAlt />
                     Already registered?
                   </NavLink>
                   <a
                     href="https://imgbb.com"
-                    className="link link-hover text-lg"
+                    className="link link-hover text-lg flex items-center gap-2"
                     target="_blank"
                   >
-                    Upload Photo
+                    <FaExternalLinkAlt />
+                    Upload a Photo
                   </a>
                 </div>
                 <button className="btn btn-primary mt-4" type="submit">
+                  <FaUserPlus />
                   Register
                 </button>
                 <button

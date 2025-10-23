@@ -3,6 +3,10 @@ import { HiUserCircle } from "react-icons/hi2";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import Error from "../components/Error";
+import { FaSignOutAlt } from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
+import { IoChevronBackCircle } from "react-icons/io5";
+import { FaUserCheck } from "react-icons/fa";
 
 const Profile = () => {
   const [update, setUpdate] = useState(false);
@@ -85,6 +89,7 @@ const Profile = () => {
                   defaultValue={defPhotoURL}
                 />
                 <button className="btn btn-primary mt-4" type="submit">
+                  <FaUserCheck className="mb-0.5" />
                   Update
                 </button>
                 <button
@@ -92,6 +97,7 @@ const Profile = () => {
                   type="button"
                   onClick={handleUpdateButton}
                 >
+                  <IoChevronBackCircle />
                   Back to Profile
                 </button>
               </div>
@@ -132,9 +138,11 @@ const Profile = () => {
               type="button"
               onClick={handleUpdateButton}
             >
+              <FaUserEdit className="mb-0.5" />
               Update Profile
             </button>
             <button onClick={handleLogout} className="btn btn-error text-white">
+              <FaSignOutAlt />
               Logout
             </button>
           </div>

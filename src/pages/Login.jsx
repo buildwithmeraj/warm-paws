@@ -5,6 +5,9 @@ import toast from "react-hot-toast";
 import Error from "../components/Error";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
+import { FaSignInAlt } from "react-icons/fa";
+import { BiSolidHelpCircle } from "react-icons/bi";
+import { FaUserPlus } from "react-icons/fa6";
 
 const Login = () => {
   const { signInUsingEmail, signInUsingGoogle, setUser, firebaseErrors } =
@@ -117,16 +120,22 @@ const Login = () => {
                 <div className="flex flex-col lg:flex-row lg:justify-between mt-3 gap-2">
                   <a
                     onClick={handleForgotPassword}
-                    className="link link-hover text-lg"
+                    className="link link-hover text-lg flex items-center gap-2"
                   >
+                    <BiSolidHelpCircle />
                     Forgot password?
                   </a>
-                  <NavLink to="/register" className="link link-hover text-lg">
+                  <NavLink
+                    to="/register"
+                    className="link link-hover text-lg flex items-center gap-2"
+                  >
+                    <FaUserPlus />
                     Create an account
                   </NavLink>
                 </div>
 
                 <button className="btn btn-primary mt-4 w-full" type="submit">
+                  <FaSignInAlt />
                   Login
                 </button>
                 <button

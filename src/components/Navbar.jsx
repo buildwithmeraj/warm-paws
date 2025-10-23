@@ -2,22 +2,11 @@ import React, { useContext } from "react";
 import logo from "../assets/logo.png";
 import { NavLink, Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
-import toast from "react-hot-toast";
 import { HiUserCircle } from "react-icons/hi2";
+import { FaSignInAlt } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user, setUser, logOut } = useContext(AuthContext);
-
-  const handleLogout = () => {
-    toast.success("Logged out successfully");
-    setTimeout(() => {
-      logOut()
-        .then(() => setUser(null))
-        .catch((error) => {
-          toast.error("Logout error: " + error.message);
-        });
-    }, 2000);
-  };
+  const { user } = useContext(AuthContext);
 
   const navLinks = (
     <>
@@ -90,26 +79,16 @@ const Navbar = () => {
             )}
           </div>
           <Link to="/profile" className="btn mr-2 btn-primary text-white">
+            <HiUserCircle className="text-xl" />
             Profile
           </Link>
-          <button
-            onClick={handleLogout}
-            className="btn btn-error text-white hidden lg:flex"
-          >
-            Logout
-          </button>
         </div>
       ) : (
         <div className="navbar-end">
           <HiUserCircle className="text-5xl mr-2" />
           <Link to="/login" className="btn mr-2 btn-primary text-white">
+            <FaSignInAlt />
             Login
-          </Link>
-          <Link
-            to="/register"
-            className="btn btn-success text-white  hidden lg:flex"
-          >
-            Register
           </Link>
         </div>
       )}

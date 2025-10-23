@@ -5,9 +5,10 @@ import React, { useContext, useEffect, useState } from "react";
 import ErrorImage from "../components/ErrorImage";
 import { BiSolidCategory } from "react-icons/bi";
 import { PiFlagBannerFill } from "react-icons/pi";
-import { MdPriceCheck } from "react-icons/md";
+import { BiSolidBadgeDollar } from "react-icons/bi";
 import { HiMiniTicket } from "react-icons/hi2";
 import { MdReviews } from "react-icons/md";
+import { FaRegCalendarCheck } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -89,7 +90,7 @@ const ServiceDetails = () => {
               </div>
               <div className="mb-2">
                 <div className="mb-4 text-xl flex items-center gap-1">
-                  <MdPriceCheck />
+                  <BiSolidBadgeDollar />
                   Total Charge: ${service.price}
                 </div>
                 <div className="mb-4 text-xl flex items-center gap-1">
@@ -126,6 +127,7 @@ const ServiceDetails = () => {
                     className="btn btn-primary w-full rounded-lg text-white mt-2"
                     type="submit"
                   >
+                    <FaRegCalendarCheck />
                     Book Service
                   </button>
                 </div>

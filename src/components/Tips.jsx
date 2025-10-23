@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Error from "./Error";
+import { MdTipsAndUpdates } from "react-icons/md";
 
 const Tips = () => {
   const [tips, setTips] = useState([]);
@@ -34,8 +35,9 @@ const Tips = () => {
             key={tip.id}
             className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm"
           >
-            <div className="font-semibold">
-              {tip.icon} {tip.title}
+            <div className="font-semibold flex items-center gap-2 mb-2 text-lg">
+              <MdTipsAndUpdates />
+              {tip.title}
             </div>
             <div>{tip.description}</div>
           </div>
