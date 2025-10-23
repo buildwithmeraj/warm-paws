@@ -59,9 +59,10 @@ const Profile = () => {
   if (update) {
     return (
       <div className="hero min-h-[60vh]">
+        <title>Update Profile - WarmPaws</title>
         <form onSubmit={handleForm}>
           <div className="hero-content flex-col">
-            <div className="card bg-base-100 lg:w-xl shadow-2xl">
+            <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
               <div className="card-body">
                 <h2 className="text-3xl font-semibold text-center">
                   Update <span className="text-amber-600">Profile</span>
@@ -102,6 +103,7 @@ const Profile = () => {
   }
   return (
     <div className="hero min-h-[60vh]">
+      <title>Profile - WarmPaws</title>
       <div className="hero-content flex-col">
         <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
           <div className="card-body">
@@ -114,7 +116,7 @@ const Profile = () => {
                   <img
                     src={user.photoURL}
                     alt="User Avatar"
-                    className="w-24 h-24 rounded-full mx-auto"
+                    className="w-24 h-24 rounded-full border-2 border-amber-600 mx-auto"
                   />
                 ) : (
                   <HiUserCircle className="w-24 h-24 mx-auto text-gray-400" />

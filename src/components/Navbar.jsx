@@ -60,7 +60,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link className="text-2xl flex items-center gap-2" to="/">
+        <Link className="btn btn-ghost text-2xl" to="/">
           <img src={logo} alt="logo" className="h-6 mr-0.5" />
           <div>
             <span className="text-amber-600">Warm</span>Paws
@@ -82,11 +82,11 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="profile picture"
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 rounded-full border-2 border-amber-600 cursor-help"
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <HiUserCircle className="text-5xl cursor-help" />
+              <HiUserCircle className="text-5xl" />
             )}
           </div>
           <Link to="/profile" className="btn mr-2 btn-primary text-white">
@@ -101,6 +101,7 @@ const Navbar = () => {
         </div>
       ) : (
         <div className="navbar-end">
+          <HiUserCircle className="text-5xl mr-2" />
           <Link to="/login" className="btn mr-2 btn-primary text-white">
             Login
           </Link>

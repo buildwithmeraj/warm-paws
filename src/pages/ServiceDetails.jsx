@@ -47,6 +47,8 @@ const ServiceDetails = () => {
   if (service) {
     return (
       <div className="m-4">
+        <title>Service Details - WarmPaws</title>
+
         <h2 className="font-semibold text-4xl text-center mb-4">
           <span className="text-amber-600">Services</span> Details
         </h2>

@@ -30,6 +30,7 @@ const AllServices = () => {
   if (error) return <Error message={error} />;
   return (
     <div className="m-4">
+      <title>Services - WarmPaws</title>
       <h1 className="">
         Our <span className="text-amber-600">Services</span>
       </h1>

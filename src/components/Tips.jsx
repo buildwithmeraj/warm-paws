@@ -32,7 +32,7 @@ const Tips = () => {
         {tips.map((tip) => (
           <div
             key={tip.id}
-            className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-50 to-blue-100 bg-white/80 backdrop-blur-sm animate__animated animate__pulse animate__delay-1s"
+            className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm"
           >
             <div className="font-semibold">
               {tip.icon} {tip.title}

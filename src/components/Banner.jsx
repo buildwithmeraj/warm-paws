@@ -4,12 +4,15 @@ import logo from "../assets/logo.png";
 
 const Banner = () => {
   return (
-    <div className="bg-gradient-to-r from-amber-100 via-orange-100 to-amber-200 md:py-10 shadow-inner rounded-2xl w-fit mx-auto p-4 md:p-6 outline-3 outline-offset-2 outline-dashed outline-amber-600">
-      <h2 className="flex items-center justify-center gap-2 text-4xl font-bold animate__animated animate__rubberBand">
+    <div
+      className="bg-gradient-to-r from-amber-100 via-orange-50 to-amber-200 
+    md:py-10 shadow-lg rounded-3xl w-fit mx-auto p-6 md:p-8 border-4 border-dashed border-amber-700/60 backdrop-blur-sm"
+    >
+      <h2 className="flex items-center justify-center gap-2 text-4xl font-bold animate__animated animate__pulse animate__infinite animate__slow">
         <img
           src={logo}
           alt="logo"
-          className="h-10 w-10 drop-shadow-md hover:animate__animated hover:animate__pulse"
+          className="h-12 w-12 drop-shadow-lg hover:scale-110 transition-transform duration-300"
         />
         <span className="text-gray-800 tracking-wide">
           <span className="text-amber-600">Warm</span>

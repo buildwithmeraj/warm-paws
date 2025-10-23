@@ -36,6 +36,7 @@ const ForgotPassword = () => {
   };
   return (
     <div className="hero min-h-[60vh]">
+      <title>Password Reset - WarmPaws</title>
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
           <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
