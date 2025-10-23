@@ -1,62 +1,113 @@
-import React, { use } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import Error from "../components/Error";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
-  const { signInUsingEmail, setUser, firebaseErrors } = use(AuthContext);
+  const { signInUsingEmail, setUser, firebaseErrors } = useContext(AuthContext);
+
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [error, setError] = useState(null);
+  const [showPass, setShowPass] = useState(false);
+
+  const emailRef = useRef();
+
+  const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+  const passRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
   const handleForm = (e) => {
     e.preventDefault();
-    let email = e.target.email.value;
-    let password = e.target.password.value;
+    setError(null);
+
+    const email = e.target.email.value.trim();
+    const password = e.target.password.value.trim();
+
+    if (!emailRegex.test(email)) {
+      return setError("Please enter a valid email address");
+    }
+    if (!passRegex.test(password)) {
+      return setError(
+        "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
+      );
+    }
+
     signInUsingEmail(email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
         toast.success("Login Successful");
-        navigate(`${location.state ? location.state : "/"}`);
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
-        const errMsg = firebaseErrors.find(
-          (err) => err.code === error.code
-        ).message;
-        toast.error(errMsg);
+        const match = firebaseErrors.find((err) => err.code === error.code);
+        const errMsg = match
+          ? match.message
+          : "Login failed. Please try again.";
+        setError(errMsg);
       });
   };
+
+  const handleForgotPassword = () => {
+    const email = emailRef.current?.value;
+    if (!email) {
+      return setError("Please enter your email address first.");
+    }
+    navigate("/forgot-password", { state: { email } });
+  };
+
   return (
     <div className="hero min-h-[60vh]">
       <form onSubmit={handleForm}>
         <div className="hero-content flex-col">
-          <div className="card bg-base-100 shrink-0 shadow-2xl">
+          <div className="card bg-base-100 lg:w-xl shadow-2xl">
             <div className="card-body">
-              <h1>Login</h1>
+              <h1 className="text-3xl font-semibold mb-2 text-center">Login</h1>
+
+              {error && <Error message={error} />}
+
               <fieldset className="fieldset">
-                <label className="label">Email</label>
+                <label className="label font-medium">Email</label>
                 <input
                   type="email"
-                  className="input"
-                  placeholder="Email"
+                  className="input w-full"
+                  placeholder="Enter your email"
                   name="email"
+                  ref={emailRef}
                 />
-                <label className="label">Password</label>
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                  name="password"
-                />
-                <div className="mt-2">
-                  <NavLink to="/forget-password" className="link link-hover">
-                    Forgot password?
-                  </NavLink>
+
+                <label className="label font-medium mt-2">Password</label>
+                <div className="relative">
+                  <input
+                    type={showPass ? "text" : "password"}
+                    className="input w-full pr-10"
+                    placeholder="Enter your password"
+                    name="password"
+                  />
+                  <span
+                    className="absolute right-2 top-2 cursor-pointer text-2xl text-gray-600"
+                    onClick={() => setShowPass(!showPass)}
+                  >
+                    {showPass ? <IoEye /> : <IoEyeOff />}
+                  </span>
                 </div>
-                <div className="mt-2">
-                  <NavLink to="/register" className="link link-hover">
+
+                <div className="flex justify-between items-center mt-3">
+                  <button
+                    type="button"
+                    onClick={handleForgotPassword}
+                    className="link link-hover text-lg"
+                  >
+                    Forgot password?
+                  </button>
+                  <NavLink to="/register" className="link link-hover text-lg">
                     Create an account
                   </NavLink>
                 </div>
-                <button className="btn btn-neutral mt-4" type="submit">
+
+                <button className="btn btn-neutral mt-4 w-full" type="submit">
                   Login
                 </button>
               </fieldset>

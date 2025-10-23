@@ -1,11 +1,10 @@
 import { useParams, Link } from "react-router";
-import Loading from "./Loading";
-import Error from "./Error";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 import React, { useContext, useEffect, useState } from "react";
-import ErrorImage from "./ErrorImage";
+import ErrorImage from "../components/ErrorImage";
 import { BiSolidCategory } from "react-icons/bi";
 import { PiFlagBannerFill } from "react-icons/pi";
-import { BsInfoSquare } from "react-icons/bs";
 import { MdPriceCheck } from "react-icons/md";
 import { HiMiniTicket } from "react-icons/hi2";
 import { MdReviews } from "react-icons/md";
@@ -82,8 +81,6 @@ const ServiceDetails = () => {
                 </span>
               </div>
               <div className="text-xl flex items-center gap-2 mb-8 mt-4">
-                <BsInfoSquare />
-
                 {service.description}
               </div>
               <div className="mb-2">

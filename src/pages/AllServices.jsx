@@ -1,5 +1,5 @@
-import Loading from "./Loading";
-import Error from "./Error";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { HiMiniTicket } from "react-icons/hi2";

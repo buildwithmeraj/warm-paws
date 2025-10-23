@@ -6,7 +6,7 @@ const Error = ({ message }) => {
     <div role="alert" className="alert alert-error alert-soft">
       <span className="flex items-center gap-2">
         <VscError />
-        {message} Please try reloading the page.
+        {message}
       </span>
     </div>
   );

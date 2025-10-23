@@ -4,6 +4,7 @@ export const AuthContext = createContext();
 import {
   getAuth,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
@@ -70,6 +71,10 @@ const AuthProvider = ({ children }) => {
     signOut(auth);
   };
 
+  const passwordResetEmail = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -84,6 +89,7 @@ const AuthProvider = ({ children }) => {
     user,
     setUser,
     signInUsingEmail,
+    passwordResetEmail,
     registerUsingEmail,
     logOut,
     firebaseErrors,
