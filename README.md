@@ -34,7 +34,7 @@ Firebase config is stored securely using `.env` file and accessed via Vite envir
 
 ### Hosting
 
-The project is hosted on Firebase / Netlify ensuring proper route handling and authorized domain setup.
+The project is hosted on Firebase ensuring proper route handling and authorized domain setup.
 
 ### Author
 
