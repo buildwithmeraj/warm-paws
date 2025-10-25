@@ -33,7 +33,7 @@ const Tips = () => {
         {tips.map((tip) => (
           <div
             key={tip.id}
-            className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm"
+            className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm w-full"
           >
             <div className="font-semibold flex items-center gap-2 mb-2 text-lg">
               <MdTipsAndUpdates />

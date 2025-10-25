@@ -10,11 +10,15 @@ const Home = () => {
   return (
     <div>
       <title>Home - WarmPaws</title>
-      <div className="grid lg:grid-cols-2 justify-center items-center mt-6 md:mt-2 gap-6 lg:gap-1 mx-6 lg:pl-4 lg:pr-2 lg:py-4 lg:bg-gradient-to-r lg:from-sky-200 lg:to-blue-100 lg:bg-white/80 lg:rounded-2xl">
-        <Banner />
-        <Slider />
+      <div className="bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm rounded-xl">
+        <div className="container mx-auto px-4 py-8 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <Banner />
+            <Slider />
+          </div>
+        </div>
       </div>
-      <Services />
+      <Services button={true} />
       <Experts />
       <Stats />
       <Tips />

@@ -59,7 +59,7 @@ const ServiceDetails = () => {
             className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
             key={service.serviceId}
           >
-            <figure className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl">
+            <figure className="relative w-full aspect-4/3 overflow-hidden rounded-3xl px-6">
               <img
                 src={service.image}
                 alt={service.serviceName}
@@ -67,7 +67,7 @@ const ServiceDetails = () => {
                 loading="lazy"
               />
             </figure>
-            <div className="card-body p-4">
+            <div className="card-body py-4 px-2">
               <h2 className="card-title text-3xl font-semibold">
                 {service.serviceName}
               </h2>

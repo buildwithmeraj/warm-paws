@@ -118,13 +118,13 @@ const Login = () => {
                 </div>
 
                 <div className="flex flex-col lg:flex-row lg:justify-between mt-3 gap-2">
-                  <a
+                  <button
                     onClick={handleForgotPassword}
                     className="link link-hover text-lg flex items-center gap-2"
                   >
                     <BiSolidHelpCircle />
                     Forgot password?
-                  </a>
+                  </button>
                   <NavLink
                     to="/register"
                     className="link link-hover text-lg flex items-center gap-2"

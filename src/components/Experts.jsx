@@ -23,8 +23,8 @@ const Experts = () => {
   if (doctors.length === 0) return null;
 
   return (
-    <div className="md:mt-6">
-      <h1>
+    <div className="mt-2 md:mt-4">
+      <h1 className="mb-4 md:mb-4">
         Meet Our <span className="text-amber-600">Vet Experts</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -33,7 +33,7 @@ const Experts = () => {
             className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={doctor.id}
           >
-            <figure className="relative w-full aspect-square aspect-[2/3] 3md:aspect-[2/4] overflow-hidden rounded-2xl">
+            <figure className="relative w-full aspect-square aspect-2/3 overflow-hidden rounded-2xl">
               <img
                 src={doctor.image}
                 alt={doctor.doctorName}

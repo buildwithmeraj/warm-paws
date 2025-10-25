@@ -9,6 +9,9 @@ import AllServices from "../pages/AllServices";
 import Profile from "../pages/Profile";
 import ErrorPage from "../pages/ErrorPage";
 import ForgotPassword from "../pages/ForgotPassword";
+import AboutUs from "../pages/AboutUs";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import Contact from "../pages/Contact";
 const router = createBrowserRouter([
   {
     Component: MainLayout,
@@ -19,6 +22,9 @@ const router = createBrowserRouter([
       { path: "/register", Component: Register },
       { path: "/forgot-password", Component: ForgotPassword },
       { path: "/services", Component: AllServices },
+      { path: "/about-us", Component: AboutUs },
+      { path: "/privacy-policy", Component: PrivacyPolicy },
+      { path: "/contact-us", Component: Contact },
       {
         path: "/services/:id",
         element: (

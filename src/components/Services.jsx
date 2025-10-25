@@ -8,7 +8,7 @@ import { NavLink } from "react-router";
 import { BiSolidDetail } from "react-icons/bi";
 import { CgMoreO } from "react-icons/cg";
 
-const Services = () => {
+const Services = ({ button }) => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,17 +31,23 @@ const Services = () => {
   if (loading) return <Loading />;
   if (error) return <Error message={error} />;
   return (
-    <div className="m-4">
-      <h1 className="">
+    <div>
+      <h1 className={button ? "mt-6 mb-4" : "mb-4"}>
         Our <span className="text-amber-600">Services</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.slice(0, 8).map((service) => (
+      {!button && (
+        <p className="mb-6 text-gray-600 px-3 text:md lg:text-xl lg:text-center">
+          Explore our wide range of services designed to keep your furry friends
+          happy and healthy even in the winter.
+        </p>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+        {services.map((service) => (
           <div
             className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
             key={service.serviceId}
           >
-            <figure className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl">
+            <figure className="relative w-full aspect-4/3 overflow-hidden rounded-3xl">
               <img
                 src={service.image}
                 alt={service.serviceName}
@@ -87,15 +93,17 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <div className="py-6 text-center">
-        <NavLink
-          to="/services"
-          className="btn btn-primary rounded-lg text-white"
-        >
-          <CgMoreO />
-          More Services
-        </NavLink>
-      </div>
+      {button && (
+        <div className="py-6 text-center">
+          <NavLink
+            to="/services"
+            className="btn btn-primary rounded-lg text-white"
+          >
+            <CgMoreO />
+            More Services
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 };

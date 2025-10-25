@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  @apply font-bold text-4xl py-6 text-center;
+  @apply font-bold text-4xl text-center;
 }
 
 .home-banner {
@@ -39,6 +39,22 @@ h1 {
 
 .navbar a :not(.btn) {
   transition: color 0.3s ease;
+}
+
+.btn {
+  @apply rounded-full;
+}
+
+.input:not(.textarea) {
+  @apply rounded-full;
+}
+
+textarea {
+  @apply rounded-3xl;
+}
+
+label {
+  @apply pl-1;
 }
 
 .btn-primary {
@@ -65,38 +81,4 @@ h1 {
 
 .footer a:hover {
   opacity: 0.8;
-}
-
-.banner-rotating-outline::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 1rem;
-  background: repeating-conic-gradient(
-    from 0deg,
-    #f6a192 0deg 10deg,
-    transparent 10deg 20deg
-  );
-  animation: rotate-border 4s linear infinite;
-  z-index: 0;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 4px;
-}
-
-.banner-rotating-outline {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-
-@keyframes rotate-border {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

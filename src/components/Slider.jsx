@@ -8,6 +8,8 @@ import Loading from "./Loading";
 import Error from "./Error";
 import snowflakeImage1 from "../assets/snowflake1.png";
 import snowflakeImage2 from "../assets/snowflake2.png";
+import snowflakeCorner1 from "../assets/snowflake_corner.png";
+import snowflakeCorner2 from "../assets/snowflake_corner2.png";
 
 const Slider = () => {
   const [images, setImages] = useState([]);
@@ -38,10 +40,10 @@ const Slider = () => {
   if (images.length === 0) return null;
 
   return (
-    <div className="relative my-0">
+    <div className="order-1 lg:order-2 relative">
       {snowflakeImages.length > 0 && (
         <Snowfall
-          snowflakeCount={110}
+          snowflakeCount={80}
           color="#ffffff"
           radius={[5, 20]}
           speed={[0.5, 1.5]}
@@ -57,35 +59,48 @@ const Slider = () => {
         />
       )}
 
-      <Swiper
-        modules={[EffectCoverflow, Autoplay]}
-        effect="coverflow"
-        coverflowEffect={{
-          rotate: 20,
-          stretch: 0,
-          depth: 100,
-          modifier: 2,
-          slideShadows: true,
-        }}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        loop={images.length > 2}
-        centeredSlides
-        slidesPerView={1}
-        className="w-[350px] md:w-[600px] lg:w-[800px] h-60 md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden"
-      >
-        {images.map((img) => (
-          <SwiperSlide key={img.id}>
-            <img
-              src={img.url}
-              alt={img.alt}
-              className="w-full h-full object-cover"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="relative">
+        <Swiper
+          modules={[EffectCoverflow, Autoplay]}
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 20,
+            stretch: 0,
+            depth: 100,
+            modifier: 2,
+            slideShadows: true,
+          }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop={images.length > 2}
+          centeredSlides
+          slidesPerView={1}
+          className="w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+        >
+          <img
+            src={snowflakeCorner1}
+            alt="corner decoration"
+            className="absolute top-2 left-2 w-16 md:w-24 lg:w-32 z-20 pointer-events-none"
+          />
+          <img
+            src={snowflakeCorner2}
+            alt="corner decoration"
+            className="absolute bottom-2 right-2 w-16 md:w-24 lg:w-32 z-20 pointer-events-none"
+          />
+
+          {images.map((img) => (
+            <SwiperSlide key={img.id}>
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

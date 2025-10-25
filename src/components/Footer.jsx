@@ -2,14 +2,21 @@ import React from "react";
 import { FaLocationArrow } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { BsSendFill } from "react-icons/bs";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded py-8 px-2 gap-y-4 text-lg">
+    <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded py-8 px-2 gap-y-4 text-lg mt-4">
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Privacy Policy</a>
+        <Link className="link link-hover" to="/about-us">
+          About us
+        </Link>
+        <Link className="link link-hover" to="/contact-us">
+          Contact
+        </Link>
+        <Link className="link link-hover" to="/privacy-policy">
+          Privacy Policy
+        </Link>
       </nav>
 
       <nav>
@@ -65,12 +72,9 @@ const Footer = () => {
 
             <span>
               Have any questions?{" "}
-              <a
-                href="mailto:buildwithmeraj@gmail.com"
-                className="link link-hover"
-              >
-                Send us a Mail
-              </a>
+              <Link to="/contact-us" className="link link-hover">
+                Send us a Message
+              </Link>
             </span>
           </div>
         </div>

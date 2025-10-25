@@ -88,18 +88,23 @@ const Profile = () => {
                   name="photoURL"
                   defaultValue={defPhotoURL}
                 />
-                <button className="btn btn-primary mt-4" type="submit">
-                  <FaUserCheck className="mb-0.5" />
-                  Update
-                </button>
-                <button
-                  className="btn mt-2 w-full"
-                  type="button"
-                  onClick={handleUpdateButton}
-                >
-                  <IoChevronBackCircle />
-                  Back to Profile
-                </button>
+                <div className="flex flex-col mt-2 lg:flex-row gap-2 items-center justify-evenly">
+                  <button
+                    className="btn btn-primary w-full lg:w-1/2"
+                    type="submit"
+                  >
+                    <FaUserCheck className="mb-0.5" />
+                    Update
+                  </button>
+                  <button
+                    className="btn w-full lg:w-1/2"
+                    type="button"
+                    onClick={handleUpdateButton}
+                  >
+                    <IoChevronBackCircle />
+                    Back to Profile
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -133,18 +138,24 @@ const Profile = () => {
                 <p className="text-gray-600 text-lg">{user.email}</p>
               </div>
             )}
-            <button
-              className="btn btn-primary mt-2 w-full"
-              type="button"
-              onClick={handleUpdateButton}
-            >
-              <FaUserEdit className="mb-0.5" />
-              Update Profile
-            </button>
-            <button onClick={handleLogout} className="btn btn-error text-white">
-              <FaSignOutAlt />
-              Logout
-            </button>
+            <div className="flex flex-col lg:flex-row gap-2 justify-evenly">
+              <button
+                className="btn btn-primary w-full lg:w-1/2"
+                type="button"
+                onClick={handleUpdateButton}
+              >
+                <FaUserEdit className="mb-0.5" />
+                Update Profile
+              </button>
+
+              <button
+                onClick={handleLogout}
+                className="btn btn-error text-white w-full lg:w-1/2"
+              >
+                <FaSignOutAlt />
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
