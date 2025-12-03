@@ -2,7 +2,7 @@
 
 ### Live Link
 
-https://[https://warmpaws.pages.dev/](https://warmpaws.pages.dev/)
+[https://warmpaws.pages.dev/](https://warmpaws.pages.dev/)
 
 ### Purpose
 
