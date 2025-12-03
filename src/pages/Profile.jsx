@@ -66,7 +66,7 @@ const Profile = () => {
         <title>Update Profile - WarmPaws</title>
         <form onSubmit={handleForm}>
           <div className="hero-content flex-col">
-            <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
+            <div className="card bg-base-100 w-[320px] md:w-lg shadow-2xl">
               <div className="card-body">
                 <h2 className="text-3xl font-semibold text-center">
                   Update <span className="text-amber-600">Profile</span>
@@ -116,7 +116,7 @@ const Profile = () => {
     <div className="hero min-h-[60vh]">
       <title>Profile - WarmPaws</title>
       <div className="hero-content flex-col">
-        <div className="card bg-base-100 w-[320px] md:w-lg lg:w-xl shadow-2xl">
+        <div className="card bg-base-100 w-[320px] md:w-lg shadow-2xl">
           <div className="card-body">
             <h2 className="text-3xl font-semibold text-center">
               Your <span className="text-amber-600">Profile</span>

@@ -25,15 +25,14 @@ const Tips = () => {
 
   return (
     <div className="mt-6">
-      <h2 className="font-semibold text-2xl text-center mb-4">
-        <span className="text-amber-600">Winter Care Tips</span> for Your
-        Favourite Paws
-      </h2>
+      <h1 className="font-semibold text-4xl md:text-5xl text-center mb-6">
+        Winter Care <span className="text-accent">Tips</span>
+      </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4 mb-2">
         {tips.map((tip) => (
           <div
             key={tip.id}
-            className="p-4 shadow-sm hover:shadow-md rounded-lg bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm w-full"
+            className="p-4 shadow-sm hover:shadow-md rounded-xl bg-gradient-to-r from-sky-200 to-blue-100 backdrop-blur-sm w-full text-primary"
           >
             <div className="font-semibold flex items-center gap-2 mb-2 text-lg">
               <MdTipsAndUpdates />

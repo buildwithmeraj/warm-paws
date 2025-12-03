@@ -7,16 +7,16 @@ import logo from "../assets/logo.png";
 const Banner = () => {
   return (
     <div className="">
-      <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl p-8 md:p-10 border-4 border-dashed border-amber-600/40">
+      <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl p-8 md:p-10 border-4 border-dashed border-accent">
         <div className="text-center lg:text-left">
-          <h2 className="flex items-center justify-center lg:justify-start gap-3 text-4xl md:text-5xl font-bold animate__animated animate__pulse animate__infinite animate__slow">
+          <h2 className="flex items-center justify-center lg:justify-start gap-3 text-4xl md:text-5xl font-bold">
             <img
               src={logo}
               alt="logo"
-              className="h-12 w-12 md:h-14 md:w-14 drop-shadow-lg hover:scale-110 transition-transform duration-300"
+              className="h-12 w-12 md:h-14 md:w-14 drop-shadow-lg hover:scale-110 transition-transform duration-300 animate__animated animate__wobble animate__infinite animate__slow"
             />
             <span className="text-gray-800 tracking-wide">
-              <span className="text-amber-600">Warm</span>
+              <span className="text-accent font-bold">Warm</span>
               Paws
             </span>
           </h2>
@@ -25,7 +25,7 @@ const Banner = () => {
             Cozy Care for Your Furry Companion
           </p>
 
-          <div className="mt-6 mx-auto lg:mx-0 w-2/3 h-1 rounded-full bg-amber-500 animate__animated animate__fadeIn hidden lg:block"></div>
+          <div className="mt-6 mx-auto lg:mx-0 w-2/3 h-1 rounded-full bg-accent animate__animated animate__bounceIn hidden lg:block"></div>
 
           <p className="mt-8 text-gray-600 leading-relaxed text-base hidden xl:block md:text-lg">
             At WarmPaws, we believe pets deserve the same comfort and care as
@@ -36,13 +36,13 @@ const Banner = () => {
 
           <div className="mt-8 flex flex-row gap-4 justify-center lg:justify-start">
             <Link
-              className="btn btn-primary bg-amber-600 hover:bg-amber-700 border-none text-white px-8"
+              className="btn btn-primary bg-accent hover:bg-amber-700 border-none text-white px-8"
               to="/services"
             >
               Get Started
             </Link>
             <Link
-              className="btn btn-outline border-amber-600 text-amber-700 hover:bg-amber-600 hover:text-white px-8"
+              className="btn btn-outline border-accent text-accent hover:bg-amber-600 hover:text-white px-8"
               to="/about-us"
             >
               Learn More

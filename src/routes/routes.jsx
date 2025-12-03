@@ -25,14 +25,7 @@ const router = createBrowserRouter([
       { path: "/about-us", Component: AboutUs },
       { path: "/privacy-policy", Component: PrivacyPolicy },
       { path: "/contact-us", Component: Contact },
-      {
-        path: "/services/:id",
-        element: (
-          <PrivateRoutes>
-            <ServiceDetails />
-          </PrivateRoutes>
-        ),
-      },
+      { path: "/services/:id", Component: ServiceDetails },
       {
         path: "/profile",
         element: (

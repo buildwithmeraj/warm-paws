@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <title>Home - WarmPaws</title>
-      <div className="bg-gradient-to-r from-sky-200 to-blue-100 bg-white/80 backdrop-blur-sm rounded-xl">
+      <div className="bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm rounded-xl">
         <div className="container mx-auto px-4 py-8 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <Banner />

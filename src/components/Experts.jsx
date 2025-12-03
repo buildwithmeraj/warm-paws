@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Error from "./Error";
+import DoctorCard from "./DoctorCard";
 
 const Experts = () => {
   const [doctors, setDoctors] = useState([]);
@@ -24,31 +25,12 @@ const Experts = () => {
 
   return (
     <div className="mt-2 md:mt-4">
-      <h1 className="mb-4 md:mb-4">
-        Meet Our <span className="text-amber-600">Vet Experts</span>
+      <h1 className="mb-6 md:mb-6">
+        Meet Our <span className="text-accent">Vet Experts</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {doctors.map((doctor) => (
-          <div
-            className="card bg-base-200 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:animate__animated hover:animate__pulse"
-            key={doctor.id}
-          >
-            <figure className="relative w-full aspect-square aspect-2/3 overflow-hidden rounded-2xl">
-              <img
-                src={doctor.image}
-                alt={doctor.doctorName}
-                className="absolute inset-0 w-full h-full object-cover p-2 rounded-2xl"
-                loading="lazy"
-              />
-            </figure>
-            <div className="card-body py-1">
-              <h2 className="card-title text-2xl">{doctor.name}</h2>
-              <div className="font-semibold text-sky-600">
-                {doctor.specialty} ({doctor.experience})
-              </div>
-              <p className="mb-2">{doctor.bio}</p>
-            </div>
-          </div>
+          <DoctorCard doctor={doctor} />
         ))}
       </div>
     </div>
