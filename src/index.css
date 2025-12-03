@@ -43,7 +43,7 @@
   --color-base-200: oklch(37% 0.034 259.733);
   --color-base-300: oklch(44% 0.03 256.802);
   --color-base-content: oklch(82.901% 0.031 222.959);
-  --color-primary: oklch(44% 0.11 240.79);
+  --color-primary: oklch(50% 0.134 242.749);
   --color-primary-content: oklch(98% 0.014 180.72);
   --color-secondary: oklch(60% 0.118 184.704);
   --color-secondary-content: oklch(98% 0.031 120.757);
@@ -57,7 +57,7 @@
   --color-success-content: oklch(98% 0 0);
   --color-warning: oklch(75% 0.183 55.934);
   --color-warning-content: oklch(97% 0 0);
-  --color-error: oklch(58% 0.253 17.585);
+  --color-error: oklch(64% 0.246 16.439);
   --color-error-content: oklch(100% 0 0);
   --radius-selector: 2rem;
   --radius-field: 2rem;
@@ -70,13 +70,6 @@
 }
 
 @import "animate.css";
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-
-body {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
 
 h1 {
   @apply font-bold text-4xl text-center;

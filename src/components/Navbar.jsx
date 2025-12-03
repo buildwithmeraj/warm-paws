@@ -98,8 +98,8 @@ const Navbar = () => {
               )}
             </div>
             <Link to="/profile" className="btn mr-1.5 btn-info text-white">
-              <HiUserCircle className="text-xl" />
-              Profile
+              <HiUserCircle className="text-xl" />{" "}
+              <span className="hidden md:flex">Profile</span>
             </Link>
             <button
               onClick={handleLogout}
@@ -113,7 +113,7 @@ const Navbar = () => {
           <>
             <Link to="/login" className="btn mr-1.5 btn-info ">
               <FaSignInAlt />
-              Login
+              <span className="hidden md:flex">Login</span>
             </Link>
             <Link
               to="/register"

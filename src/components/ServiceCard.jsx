@@ -3,6 +3,7 @@ import React from "react";
 import { BiSolidBadgeDollar } from "react-icons/bi";
 import { HiMiniTicket } from "react-icons/hi2";
 import { MdReviews } from "react-icons/md";
+import { PiFlagBannerFill } from "react-icons/pi";
 import { NavLink } from "react-router";
 
 const ServiceCard = ({ service }) => {
@@ -18,8 +19,11 @@ const ServiceCard = ({ service }) => {
       </figure>
       <div className="card-body py-1 px-4">
         <h2 className="card-title truncate">{service.serviceName}</h2>
-        <div className="text-gray-700 font-semibold flex items-center justify-between">
-          {service.providerName}{" "}
+        <div className="font-semibold flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <PiFlagBannerFill className="w-5 h-5 text-base-content/70" />
+            {service.providerName}{" "}
+          </div>
           <div className="badge badge-sm badge-secondary">
             {service.category}
           </div>

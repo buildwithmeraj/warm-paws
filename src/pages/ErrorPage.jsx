@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 px-[3%] py-[1%] flex items-center justify-center h-[70vh] flex-col gap-4 pt-4">
+      <main className="flex-1 px-[3%] py-[1%] flex items-center justify-center min-h-[80vh] flex-col gap-4 pt-4">
         <ErrorImage />
         <div className="text-center font-semibold text-3xl">
           <span className="text-amber-600">OOPS!</span> Page Not Found.

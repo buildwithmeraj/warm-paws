@@ -25,7 +25,7 @@ const Contact = () => {
     }
     if (message.length < 30) {
       return setError(
-        "Invalid name. Name must be at least 30 characters long."
+        "Invalid name. Message must be at least 30 characters long."
       );
     }
     toast.success("Message sent successfully!");

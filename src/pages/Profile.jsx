@@ -60,6 +60,32 @@ const Profile = () => {
         });
     }, 2000);
   };
+
+  const formatCustomDate = (dateString) => {
+    const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    const minutesPadded = minutes < 10 ? "0" + minutes : minutes;
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear() % 100;
+
+    const newTimeString = `${hours}:${minutesPadded} ${ampm}`;
+    const newDateString = `${day}/${month}/${year}`;
+
+    return `${newTimeString}, ${newDateString}`;
+  };
+
   if (update) {
     return (
       <div className="hero min-h-[60vh]">
@@ -136,6 +162,12 @@ const Profile = () => {
                   {user.displayName}
                 </h2>
                 <p className="text-gray-600 text-lg">{user.email}</p>
+                <p className="text-gray-600/80 text-sm mt-1">
+                  Created at: {formatCustomDate(user?.metadata?.creationTime)}
+                </p>
+                <p className="text-gray-600/80 text-sm">
+                  Last Login: {formatCustomDate(user?.metadata?.lastSignInTime)}
+                </p>
               </div>
             )}
             <div className="flex flex-col lg:flex-row gap-2 justify-evenly">
