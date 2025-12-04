@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
 import Snowfall from "react-snowfall";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 import Loading from "./Loading";
 import Error from "./Error";
 import snowflakeImage1 from "../assets/snowflake1.png";
 import snowflakeImage2 from "../assets/snowflake2.png";
 import snowflakeCorner1 from "../assets/snowflake_corner.png";
 import snowflakeCorner2 from "../assets/snowflake_corner2.png";
+import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 
 const Slider = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [snowflakeImages, setSnowflakeImages] = useState([]);
+  const swiperRef = useRef(null);
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   useEffect(() => {
     const img1 = new Image();
@@ -61,7 +66,8 @@ const Slider = () => {
 
       <div className="relative">
         <Swiper
-          modules={[EffectCoverflow, Autoplay]}
+          ref={swiperRef}
+          modules={[EffectCoverflow, Autoplay, Navigation]}
           effect="coverflow"
           coverflowEffect={{
             rotate: 20,
@@ -78,6 +84,10 @@ const Slider = () => {
           centeredSlides
           slidesPerView={1}
           className="w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
         >
           <img
             src={snowflakeCorner1}
@@ -100,6 +110,19 @@ const Slider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <div
+          ref={prevRef}
+          className="absolute top-1/2 left-3 z-30 text-accent text-4xl cursor-pointer transform -translate-y-1/2"
+        >
+          <BiSolidLeftArrow />
+        </div>
+        <div
+          ref={nextRef}
+          className="absolute top-1/2 right-3 z-30 text-accent text-4xl cursor-pointer transform -translate-y-1/2"
+        >
+          <BiSolidRightArrow />
+        </div>
       </div>
     </div>
   );

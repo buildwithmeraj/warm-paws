@@ -10,6 +10,7 @@ import Error from "../components/Error";
 import ErrorImage from "../components/ErrorImage";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Fade } from "react-awesome-reveal";
 
 const ServiceDetails = () => {
   const id = useParams().id;
@@ -76,7 +77,7 @@ const ServiceDetails = () => {
         <div className="relativerounded-3xl shadow-2xl border border-base-content/50 overflow-hidden rounded-xl bg-base-100">
           <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-10">
             <div className="relative group">
-              <div className="absolute inset-0 rounded-2xl  group-hover:opacity-30 transition-opacity duration-500"></div>
+              <Fade className="absolute inset-0 rounded-2xl  group-hover:opacity-30 transition-opacity duration-500"></Fade>
               <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl border-4 border-base-content/50">
                 <img
                   src={service.image}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import Error from "./Error";
 import { MdTipsAndUpdates } from "react-icons/md";
+import { Fade } from "react-awesome-reveal";
 
 const Tips = () => {
   const [tips, setTips] = useState([]);
@@ -34,11 +35,13 @@ const Tips = () => {
             key={tip.id}
             className="p-4 shadow-sm hover:shadow-md rounded-xl bg-gradient-to-r from-sky-200 to-blue-100 backdrop-blur-sm w-full text-primary"
           >
-            <div className="font-semibold flex items-center gap-2 mb-2 text-lg">
-              <MdTipsAndUpdates />
-              {tip.title}
-            </div>
-            <div>{tip.description}</div>
+            <Fade>
+              <div className="font-semibold flex items-center gap-2 mb-2 text-lg">
+                <MdTipsAndUpdates />
+                {tip.title}
+              </div>
+              <div>{tip.description}</div>
+            </Fade>
           </div>
         ))}
       </div>

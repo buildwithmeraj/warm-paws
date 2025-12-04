@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 
 const AboutUs = () => {
   return (
@@ -17,13 +18,13 @@ const AboutUs = () => {
           winter pet caring shop has grown into a comprehensive pet's comfort
           destination trusted by thousands of pet parents.
         </p>
-        <p>
+        <Fade>
           <img
             src="https://i.ibb.co.com/XfcCHnm7/image.png"
             alt="A Dog"
             className="rounded-xl"
           />
-        </p>
+        </Fade>
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Our Mission</h2>
           <p>
@@ -33,13 +34,13 @@ const AboutUs = () => {
             and most importantly—filled with love.
           </p>
         </div>
-        <p>
+        <Fade>
           <img
             src="https://i.ibb.co.com/twK6Wgn7/image.png"
             alt="A Dog"
             className="rounded-xl"
           />
-        </p>
+        </Fade>
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Our Story</h2>
           <p>
@@ -72,13 +73,13 @@ const AboutUs = () => {
             <li>Eco-friendly products and practices</li>
           </ul>
         </div>
-        <p>
+        <Fade>
           <img
             src="https://i.ibb.co.com/8LDhLyBy/dog-and-cat-vet.jpg"
             alt="A Dog"
             className="rounded-xl"
           />
-        </p>
+        </Fade>
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Our Values</h2>
           <p>
